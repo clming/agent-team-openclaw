@@ -2,6 +2,20 @@
 
 **多 Agent 协作开发系统**
 
+[![Projects](https://img.shields.io/badge/projects-2-blue)](./projects/README.md)
+[![Agents](https://img.shields.io/badge/agents-4-green)](./agents/)
+
+---
+
+## 🎯 已完成项目
+
+| 项目 | 状态 | GitHub | Agent 分工记录 |
+|------|------|--------|---------------|
+| **WeChat Login** | ✅ 完成 | [GitHub](https://github.com/clming/wechat-login) | [协作记录](./projects/WECHAT-LOGIN.md) |
+| **Agent Team Framework** | ✅ 完成 | [GitHub](https://github.com/clming/agent-team-openclaw) | [自引用](./projects/README.md) |
+
+📋 **查看完整项目列表**: [projects/README.md](./projects/README.md)
+
 ---
 
 ## 📁 项目结构
