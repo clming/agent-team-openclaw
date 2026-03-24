@@ -1,110 +1,170 @@
-# Agent Team 项目
+# Agent Team - 多 Agent 协作框架
 
-**多 Agent 协作开发系统**
+**Workspace 层面的 Agent 协作系统** - 用于管理所有项目的开发
 
 [![Projects](https://img.shields.io/badge/projects-2-blue)](./projects/README.md)
 [![Agents](https://img.shields.io/badge/agents-4-green)](./agents/)
 
 ---
 
-## 🎯 已完成项目
+## 🎯 定位说明
 
-| 项目 | 状态 | GitHub | Agent 分工记录 |
-|------|------|--------|---------------|
-| **WeChat Login** | ✅ 完成 | [GitHub](https://github.com/clming/wechat-login) | [协作记录](./projects/WECHAT-LOGIN.md) |
-| **Agent Team Framework** | ✅ 完成 | [GitHub](https://github.com/clming/agent-team-openclaw) | [自引用](./projects/README.md) |
+**Agent Team 不是独立项目**，而是 **Workspace 层面的协作框架**，用于：
 
-📋 **查看完整项目列表**: [projects/README.md](./projects/README.md)
-
----
-
-## 📁 项目结构
-
-```
-agent-team/
-├── agents/                 # Agent 角色定义
-│   ├── product_manager.md  # 产品经理 Agent
-│   ├── project_manager.md  # 项目经理 Agent
-│   ├── senior_developer.md # 高级开发 Agent
-│   └── qa_tester.md        # 测试工程师 Agent
-├── docs/                   # 项目文档
-│   ├── PRD.md             # 产品需求文档
-│   └── WBS.md             # 工作分解结构
-├── workflows/              # 工作流程
-│   └── dev-cycle.md       # 开发周期流程
-├── memory/                 # 记忆和日志
-│   └── session-logs.md    # 会话日志
-└── AGENTS.md              # Agent 配置说明
-```
+1. **管理所有项目**: Edu-AITest, WeChat Login, App Project 等
+2. **分配 Agent 任务**: Product Manager, Senior Developer, QA Tester 等
+3. **记录协作过程**: 每个项目的 Agent 分工和交付物
+4. **标准化流程**: 统一的开发工作流
 
 ---
 
 ## 🤖 Agent 角色
 
-### 1. 产品经理 (Product Manager)
-**职责**:
-- 需求分析和文档编写
-- 用户故事定义
-- 功能优先级排序
-- 产品路线图规划
-
-### 2. 项目经理 (Project Manager)
-**职责**:
-- 项目计划制定 (WBS)
-- 进度跟踪和管理
-- 资源分配
-- 风险管理
-
-### 3. 高级开发 (Senior Developer)
-**职责**:
-- 系统架构设计
-- 核心功能开发
-- 代码审查
-- 技术难题攻关
-
-### 4. 测试工程师 (QA Tester)
-**职责**:
-- 测试计划制定
-- 测试用例编写
-- 执行测试
-- Bug 跟踪和验证
+| Agent | 职责 | 配置文件 |
+|-------|------|---------|
+| **Product Manager** | 需求分析、产品设计、API 规范 | `agents/product_manager.md` |
+| **Project Manager** | 任务分解、进度跟踪、WBS | `agents/project_manager.md` |
+| **Senior Developer** | 架构设计、代码实现、Code Review | `agents/senior_developer.md` |
+| **QA Tester** | 测试计划、质量验收、Bug 跟踪 | `agents/qa_tester.md` |
 
 ---
 
-## 📋 工作流程
+## 📁 目录结构
 
-### 开发周期 (dev-cycle.md)
-
-1. **需求分析** → 产品经理
-2. **任务分解** → 项目经理
-3. **开发实现** → 高级开发
-4. **测试验证** → 测试工程师
-5. **迭代优化** → 全体 Agent
+```
+/root/.openclaw/workspace/
+├── agent-team/                    # ← Agent 协作框架 (本目录)
+│   ├── agents/                    # Agent 角色定义
+│   ├── workflows/                 # 工作流程
+│   ├── projects/                  # 项目协作记录
+│   │   ├── README.md              # 项目列表
+│   │   └── WECHAT-LOGIN.md        # WeChat Login 协作记录
+│   └── README.md                  # 本文件
+│
+├── projects/                      # ← 实际项目代码
+│   ├── edu-aitest/                # 教育 AI 测试平台
+│   ├── wechat-login/              # 微信登录服务
+│   └── app-project/               # 移动前端项目 (规划中)
+│
+└── skills/                        # ← 技能模块
+```
 
 ---
 
-## 📄 文档列表
+## 🔄 工作流程
 
-| 文档 | 说明 |
+```
+新需求
+  │
+  ▼
+Product Manager (需求分析)
+  │
+  ▼
+PRD 文档 + 用户故事
+  │
+  ▼
+Project Manager (任务分解)
+  │
+  ▼
+WBS 任务清单
+  │
+  ▼
+Senior Developer (代码实现)
+  │
+  ▼
+可运行代码 + 单元测试
+  │
+  ▼
+QA Tester (测试验证)
+  │
+  ▼
+测试报告 → 有 Bug? → 返回开发修复
+  │
+  无 Bug
+  │
+  ▼
+验收通过 → 提交 GitHub
+```
+
+详细流程：[workflows/dev-cycle.md](./workflows/dev-cycle.md)
+
+---
+
+## 📋 管理的项目
+
+| 项目 | 位置 | GitHub | 状态 | Agent 分工记录 |
+|------|------|--------|------|---------------|
+| **WeChat Login** | `projects/wechat-login/` | [GitHub](https://github.com/clming/wechat-login) | ✅ 完成 | [查看](./projects/WECHAT-LOGIN.md) |
+| **Edu-AITest** | `projects/edu-aitest/` | [GitHub](https://github.com/clming/edu-aitest) | ✅ 完成 | 待补充 |
+| **App Project** | `projects/app-project/` | 待创建 | 📄 规划中 | - |
+
+📊 **完整项目列表**: [projects/README.md](./projects/README.md)
+
+---
+
+## 📝 如何为新项目分配 Agent
+
+### 步骤 1: 创建项目协作记录
+
+```bash
+cd /root/.openclaw/workspace/agent-team/projects
+touch NEW-PROJECT.md
+```
+
+### 步骤 2: 记录 Agent 分工
+
+参考 `WECHAT-LOGIN.md` 格式:
+- 阶段 1: Product Manager - 需求分析
+- 阶段 2: Senior Developer - 架构设计
+- 阶段 3: Senior Developer - 代码实现
+- 阶段 4: QA Tester - 测试计划
+
+### 步骤 3: 在项目中添加引用
+
+在项目 README 中添加:
+```markdown
+🤖 本项目由 Agent Team 协作完成
+[查看协作记录](../agent-team/projects/NEW-PROJECT.md)
+```
+
+### 步骤 4: 跟踪进度
+
+更新 `projects/NEW-PROJECT.md` 中的完成状态
+
+---
+
+## 🔗 项目关联
+
+### Agent Team → 项目代码
+- `projects/WECHAT-LOGIN.md` → `../projects/wechat-login/`
+- 记录每个阶段的 Agent 和交付物
+
+### 项目代码 → Agent Team
+- 项目 README 顶部添加 Agent Team 标识
+- 链接回协作记录
+
+---
+
+## 📊 统计信息
+
+| 指标 | 数值 |
 |------|------|
-| PRD.md | 产品需求文档 |
-| WBS.md | 工作分解结构 |
-| dev-cycle.md | 开发周期流程 |
-| AGENTS.md | Agent 配置说明 |
+| 管理项目数 | 2 |
+| 已完成项目 | 2 |
+| Agent 角色 | 4 个 |
+| 总代码量 | ~6700+ 行 |
+| 总文档量 | ~315KB |
 
 ---
 
-## 🚀 使用方式
+## 📚 相关文档
 
-Agent 团队通过协调器 (Coordinator) 进行任务分配和进度跟踪。
-
-每个 Agent 都有明确的职责范围和输出标准，确保协作高效。
+- [Agent 角色定义](./agents/)
+- [工作流程](./workflows/dev-cycle.md)
+- [项目列表](./projects/README.md)
+- [WeChat Login 协作记录](./projects/WECHAT-LOGIN.md)
+- [项目关联说明](../PROJECT-RELATIONSHIP.md)
 
 ---
 
-## 📝 状态
-
-- ✅ Agent 角色定义完成
-- ✅ 工作流程设计完成
-- ✅ 文档模板创建
-- 🔄 持续优化中
+*最后更新：2026-03-24*
